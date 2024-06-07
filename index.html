@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>creating counter</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: opx;
+            padding: opx;
+            background-color: white;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+
+        }
+
+        .container h1 {
+            text-align: center;
+            color: black;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .counter {
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            background-color: aquamarine;
+
+        }
+
+        #increment-btn {
+            height: 50px;
+            width: 120px;
+            padding: 0 40px;
+            border-radius: 10px;
+            font-size: medium;
+            color: black;
+            background-color: aqua;
+            font-style: normal;
+            text-align: center;
+
+        }
+
+        #reset {
+            height: 50px;
+            width: 120px;
+            padding: 0 40px;
+            border-radius: 10px;
+            font-size: medium;
+            color: green;
+            background-color: white;
+            font-style: normal;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', ;
+            text-align: center;
+        }
+
+        #decrement-btn {
+            height: 50px;
+            width: 120px;
+            padding: 0 40px;
+            border-radius: 10px;
+            font-size: medium;
+            color: black;
+            background-color: chartreuse;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: center;
+        }
+
+        #counter-value {
+            font-size: x-large;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>COUNTER</h1>
+        <div id="counter-value">0</div>
+        <div class="counter">
+            <button id="increment-btn">increase </button>
+            <button id="reset" onclick="reset()">reset</button>
+            <button id="decrement-btn">decrease</button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+        let counter = 0;
+        const countervalue = document.getElementById('counter-value')
+        const incrementbtn = document.getElementById('increment-btn')
+        const decrementbtn = document.getElementById('decrement-btn')
+        const resetbtn = document.querySelector('#reset')
+
+        //calling the increment btn to work and increas the value of the counter 
+        incrementbtn.addEventListener("click", () => {
+            counter++;
+            countervalue.innerHTML = counter;
+            updatecolor()
+
+
+        })
+
+        // to decrease the value of the counter
+        decrementbtn.addEventListener("click", () => {
+            counter--;
+            countervalue.innerHTML = counter
+            updatecolor()
+        })
+        // // reseting the reset button
+        // resetbtn.addEventListener("click",()=>{
+        //     //counter=0;
+        //     countervalue.innerHTML=counter
+        //     console.log("yes")
+        // });
+
+        function reset() {
+            counter = 0;
+            countervalue.innerHTML = counter
+            updatecolor()
+        }
+
+        document.getElementById('counter-value').getAttribute('value')
+        const updatecolor = () => {
+            console.log(countervalue.value)
+            if (counter > 0) {
+                countervalue.style.color = "green"
+            } else if (counter < 0) {
+                countervalue.style.color = "red"
+            } else {
+                countervalue.style.color = "black"
+
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>
